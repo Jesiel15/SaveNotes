@@ -31,8 +31,6 @@ app.post("/notes", (req, res) => {
                     titleNoteText: req.body.notes.titleNoteText,
                     noteText: req.body.notes.noteText,
                 }
-            
-
         });
         notes.save().then(() => {
             // Dado salvo com sucesso
@@ -65,39 +63,39 @@ app.get("/notes", (req, res) => {
     })
 })
 
-//Listagem por ID
-// app.get("/note/:id", (req, res) => {
-//     Notes.findById(req.params.id).then((produto) => {
-//         res.statusCode = 200;
-//         res.json(produto);
-//     }).catch((erro) => {
-//         if (erro) {
-//             res.statusCode = 417;
-//             res.send();
-//             throw erro;
-//         }
-//     });
-// })
+// Listagem por ID
+app.get("/note/:id", (req, res) => {
+    Notes.findById(req.params.id).then((notes) => {
+        res.statusCode = 200;
+        res.json(notes);
+    }).catch((erro) => {
+        if (erro) {
+            res.statusCode = 417;
+            res.send();
+            throw erro;
+        }
+    });
+})
 
 // Deletar
-// app.delete("/note/:id", (req, res) => {
-//     // Notes.findByIdAndRemove(req.params.id).then((notes) => {
-//     Notes.findByIdAndDelete(req.params.id).then((notes) => {
-//         if (notes) {
-//             res.statusCode = 200;
-//             res.send();
-//         } else {
-//             res.statusCode = 404;
-//             res.send();
-//         }
-//     }).catch((erro) => {
-//         if (erro) {
-//             res.statusCode = 417;
-//             res.send();
-//             throw erro;
-//         }
-//     });
-// });
+app.delete("/note/:id", (req, res) => {
+    // Notes.findByIdAndRemove(req.params.id).then((notes) => {
+    Notes.findByIdAndDelete(req.params.id).then((notes) => {
+        if (notes) {
+            res.statusCode = 200;
+            res.send();
+        } else {
+            res.statusCode = 404;
+            res.send();
+        }
+    }).catch((erro) => {
+        if (erro) {
+            res.statusCode = 417;
+            res.send();
+            throw erro;
+        }
+    });
+});
 
 app.listen(8080, () => {
     console.log("Api rodando!");
