@@ -1,0 +1,47 @@
+Cadastro PostMAN - SaveNotes
+
+// Notas 
+http://localhost:8080
+{
+    "email": "outro@gmail.com",
+    "notes":{
+        "titleNoteText": "outro outro",
+        "noteText": "outro testeas das dasd"
+    }
+}
+
+// Users
+http://localhost:300/auth/register
+{
+    "name": "Jesiel",
+    "email": "jesiel@email.com",
+    "password": "123456"
+}
+
+
+http://localhost:3000/auth/authenticate
+{
+    "email": "jesiel@email.com",
+    "password": "123456"
+}
+
+http://localhost:3000/projects
+
+/* forgot password */
+
+http://localhost:3000/auth/forgot_password
+{
+    "email": "jesiel@email.com"
+}
+
+http://localhost:3000/auth/reset_password
+{
+    "email": "jesiel@email.com",
+    "token": "51d1c9ab2c25d2b4948848b1f258aa9c8de1071f",
+    "password": “nova senha”
+}
+
+
+
+/// CRUD List, Show, Create, Update, Delete
+

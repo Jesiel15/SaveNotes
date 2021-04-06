@@ -14,7 +14,7 @@ mongoose.connect("mongodb+srv://jesiel15:jesielfaria15@cluster0.3i6vb.mongodb.ne
 })
 
 // Carregando o model de produto
-require("./models/Notes");
+require("./src/models/Notes");
 const Notes = mongoose.model("Notes");
 
 // Endpoints Cadastro, Listagem, Listagem por ID e Delete
